@@ -1,4 +1,9 @@
-# SwiftSwitch
+
+
+
+# SwiftSwitch， 我做了一些 DIY ，与简化
+
+
 copied from gontovnik/DGRunkeeperSwitch
 
 
