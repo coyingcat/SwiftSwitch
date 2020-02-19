@@ -168,17 +168,22 @@ open class DGRunkeeperSwitch: UIControl {
     
     @objc
     func pan(_ gesture: UIPanGestureRecognizer!) {
-        if gesture.state == .began {
+        
+        switch gesture.state {
+        case .began:
             initialSelectedBackgroundViewFrame = selectedBackgroundView.frame
-        } else if gesture.state == .changed {
+        case .changed:
             var frame = initialSelectedBackgroundViewFrame!
             frame.origin.x += gesture.translation(in: self).x
             frame.origin.x = max(min(frame.origin.x, bounds.width - selectedBackgroundInset - frame.width), selectedBackgroundInset)
             selectedBackgroundView.frame = frame
-        } else if gesture.state == .ended || gesture.state == .failed || gesture.state == .cancelled {
-            let index = max(0, min(titleLabels.count - 1, Int(selectedBackgroundView.center.x / (bounds.width / CGFloat(titleLabels.count)))))
+        default:
+            // .ended,   .failed,   .cancelled
+            let stepOne = min(titleLabels.count - 1, Int(selectedBackgroundView.center.x / (bounds.width / CGFloat(titleLabels.count))))
+            let index = max(0,stepOne)
             setSelectedIndex(index, animated: true)
         }
+    
     }
     
     open func setSelectedIndex(_ selectedIndex: Int, animated: Bool) {
@@ -202,17 +207,24 @@ open class DGRunkeeperSwitch: UIControl {
         }
         
         self.selectedIndex = selectedIndex
-        if animated {
-            if (!catchHalfSwitch) {
-                self.sendActions(for: .valueChanged)
-            }
-            UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: animationSpringDamping, initialSpringVelocity: animationInitialSpringVelocity, options: [.beginFromCurrentState, .curveEaseOut], animations: { () -> Void in
-                self.layoutSubviews()
-                }, completion: nil)
-        } else {
+        
+        guard animated else {
             layoutSubviews()
             sendActions(for: .valueChanged)
+            return
         }
+        
+            if catchHalfSwitch{
+                UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: animationSpringDamping, initialSpringVelocity: animationInitialSpringVelocity, options: [.beginFromCurrentState, .curveEaseOut], animations: { () -> Void in
+                    
+                    self.layoutSubviews()
+                    
+                }, completion: nil)
+            }
+            else{
+                self.sendActions(for: .valueChanged)
+            }
+      
     }
     
     // MARK: - Layout
@@ -223,6 +235,8 @@ open class DGRunkeeperSwitch: UIControl {
         let selectedBackgroundWidth = bounds.width / CGFloat(titleLabels.count) - selectedBackgroundInset * 2.0
         selectedBackgroundView.frame = CGRect(x: selectedBackgroundInset + CGFloat(selectedIndex) * (selectedBackgroundWidth + selectedBackgroundInset * 2.0), y: selectedBackgroundInset, width: selectedBackgroundWidth, height: bounds.height - selectedBackgroundInset * 2.0)
         
+        
+        // 有点意思
         (titleLabelsContentView.frame, selectedTitleLabelsContentView.frame) = (bounds, bounds)
         
         let titleLabelMaxWidth = selectedBackgroundWidth
@@ -257,4 +271,6 @@ extension DGRunkeeperSwitch: UIGestureRecognizerDelegate {
         return super.gestureRecognizerShouldBegin(gestureRecognizer)
     }
     
+    
+    // 相当于， hit test
 }
