@@ -28,11 +28,7 @@ open class DGRunkeeperSwitch: UIControl {
     
 
     fileprivate(set) open var selectedIndex: Int = 0
-    
-    open var selectedBackgroundInset: CGFloat = 2.0 {
-        didSet { setNeedsLayout() }
-    }
-    
+    let selectedBackgroundInset: CGFloat = 2.0
     
     open var animationDuration: TimeInterval = 0.3
     open var animationSpringDamping: CGFloat = 0.75
@@ -63,11 +59,7 @@ open class DGRunkeeperSwitch: UIControl {
     private var selectedBackgroundViewFrameObserver: NSKeyValueObservation?
     
     
-    
     lazy var lhs = titleC()
-    
-    
-    
     
     // MARK: - Constructors
     
@@ -83,22 +75,21 @@ open class DGRunkeeperSwitch: UIControl {
         
         (titleLabels + selectedTitleLabels).forEach { $0.removeFromSuperview() }
 
-        
-        
-        
         let rhs = titleC()
         
         titleLabels = [lhs, rhs]
         
         
-        let titleSelectedC = {
-            let label = UILabel()
-            self.selectedTitleLabelsContentView.addSubview(label)
-            return label
-        } as () -> UILabel
+        let titleSelectedC = { num in
+            return (1...num).map{ _ in
+                let label = UILabel()
+                self.selectedTitleLabelsContentView.addSubview(label)
+                return label
+            }
+        } as (Int) -> [UILabel]
         
         
-        selectedTitleLabels = [titleSelectedC(), titleSelectedC()]
+        selectedTitleLabels = titleSelectedC(2)
         finishInit()
         backgroundColor = UIColor.scoreSwitch
     }
@@ -157,15 +148,7 @@ open class DGRunkeeperSwitch: UIControl {
         titleLabelsContentView.addSubview(label)
         return label
     }
-    
-    
-    // MARK: - Observer
-    
-    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "selectedBackgroundView.frame" {
-            titleMaskView.frame = selectedBackgroundView.frame
-        }
-    }
+
     
     // MARK: -
     
