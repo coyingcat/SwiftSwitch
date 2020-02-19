@@ -39,11 +39,7 @@ open class DGRunkeeperSwitch: UIControl {
         get { return selectedBackgroundView.backgroundColor }
     }
     
-    @IBInspectable
-    open var titleColor: UIColor! {
-        didSet { titleLabels.forEach { $0.textColor = titleColor } }
-    }
-    
+
     @IBInspectable
     open var selectedTitleColor: UIColor! {
         didSet { selectedTitleLabels.forEach { $0.textColor = selectedTitleColor } }
@@ -89,39 +85,31 @@ open class DGRunkeeperSwitch: UIControl {
         
         
         (titleLabels + selectedTitleLabels).forEach { $0.removeFromSuperview() }
+
         
-        
-        let font = UIFont.regular(ofSize: 18)
-        
-        
-        let titleC = { title in
+        let titleC = { num in
             let label = UILabel()
-            label.text = title
-            label.textColor = self.titleColor
-            label.font = font
+            label.text = "\(num)"
+            label.textColor = UIColor.white
+            label.font = UIFont.regular(ofSize: 18)
             label.textAlignment = .center
             label.lineBreakMode = .byTruncatingTail
             self.titleLabelsContentView.addSubview(label)
             return label
-        } as (String) -> UILabel
+        } as (Int) -> UILabel
         
         
-        titleLabels = [titleC(""), titleC("")]
+        titleLabels = [titleC(80), titleC(0)]
         
         
-        let titleSelectedC = { title in
+        let titleSelectedC = {
             let label = UILabel()
-            label.text = title
-            label.textColor = self.selectedTitleColor
-            label.font = font
-            label.textAlignment = .center
-            label.lineBreakMode = .byTruncatingTail
             self.selectedTitleLabelsContentView.addSubview(label)
             return label
-        } as (String) -> UILabel
+        } as () -> UILabel
         
         
-        selectedTitleLabels = [titleSelectedC(""), titleSelectedC("")]
+        selectedTitleLabels = [titleSelectedC(), titleSelectedC()]
         finishInit()
         backgroundColor = .black // don't set background color in finishInit(), otherwise IB settings which are applied in init?(coder:) are overwritten
     }
@@ -145,7 +133,7 @@ open class DGRunkeeperSwitch: UIControl {
         }
         
         selectedBackgroundColor = .white
-        titleColor = .white
+        
         selectedTitleColor = .black
       
         // Gestures

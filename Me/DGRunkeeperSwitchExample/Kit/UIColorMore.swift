@@ -32,3 +32,14 @@ extension UIColor {
         )
     }
 }
+
+
+
+
+extension UIColor{
+    
+
+    static let scoreSwitch: UIColor = UIColor(rgb: 0x725A7C) 
+
+}
+

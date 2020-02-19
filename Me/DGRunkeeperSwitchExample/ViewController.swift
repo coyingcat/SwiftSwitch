@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         let runkeeperSwitch3 = DGRunkeeperSwitch()
         runkeeperSwitch3.backgroundColor = UIColor(red: 239.0/255.0, green: 95.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         runkeeperSwitch3.selectedBackgroundColor = .white
-        runkeeperSwitch3.titleColor = .white
+        
         runkeeperSwitch3.selectedTitleColor = UIColor(red: 239.0/255.0, green: 95.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         
         runkeeperSwitch3.frame = CGRect(x: 50.0, y: 70.0 + 80, width: 81, height: 38)
