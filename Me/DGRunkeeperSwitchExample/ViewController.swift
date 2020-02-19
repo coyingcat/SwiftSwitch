@@ -21,13 +21,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let runkeeperSwitch3 = DGRunkeeperSwitch()
-  
-        runkeeperSwitch3.selectedBackgroundColor = .white
-        
-        runkeeperSwitch3.frame = CGRect(x: 50.0, y: 70.0 + 80, width: 81, height: 38)
-        runkeeperSwitch3.addTarget(self, action: #selector(ViewController.switchValueDidChange(sender:)), for: .valueChanged)
-        view.addSubview(runkeeperSwitch3)
+        let runSwitch = DGRunkeeperSwitch()
+        runSwitch.frame = CGRect(x: 50.0, y: 70.0 + 80, width: 81, height: 38)
+        runSwitch.addTarget(self, action: #selector(ViewController.switchValueDidChange(sender:)), for: .valueChanged)
+        runSwitch.configLhs(80)
+        view.addSubview(runSwitch)
     }
     
     

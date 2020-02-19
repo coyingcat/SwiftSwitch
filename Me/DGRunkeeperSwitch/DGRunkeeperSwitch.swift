@@ -33,12 +33,6 @@ open class DGRunkeeperSwitch: UIControl {
         didSet { setNeedsLayout() }
     }
     
-    @IBInspectable
-    open var selectedBackgroundColor: UIColor! {
-        set { selectedBackgroundView.backgroundColor = newValue }
-        get { return selectedBackgroundView.backgroundColor }
-    }
-    
     
     open var animationDuration: TimeInterval = 0.3
     open var animationSpringDamping: CGFloat = 0.75
@@ -52,7 +46,11 @@ open class DGRunkeeperSwitch: UIControl {
     fileprivate var selectedTitleLabelsContentView = UIView()
     fileprivate var selectedTitleLabels = [UILabel]()
     
-    fileprivate(set) var selectedBackgroundView = UIView()
+    fileprivate(set) var selectedBackgroundView = {() -> UIView in
+        let v =  UIView()
+        v.backgroundColor = UIColor.white
+        return v
+    }()
     
     fileprivate var titleMaskView: UIView = UIView()
     
@@ -63,6 +61,11 @@ open class DGRunkeeperSwitch: UIControl {
     
     
     private var selectedBackgroundViewFrameObserver: NSKeyValueObservation?
+    
+    
+    
+    lazy var lhs = titleC()
+    
     
     
     
@@ -81,17 +84,8 @@ open class DGRunkeeperSwitch: UIControl {
         (titleLabels + selectedTitleLabels).forEach { $0.removeFromSuperview() }
 
         
-        let titleC = { 
-            let label = UILabel()
-            label.textColor = UIColor.white
-            label.font = UIFont.regular(ofSize: 18)
-            label.textAlignment = .center
-            label.lineBreakMode = .byTruncatingTail
-            self.titleLabelsContentView.addSubview(label)
-            return label
-        } as () -> UILabel
-        let lhs = titleC()
-        lhs.text = "80"
+        
+        
         let rhs = titleC()
         
         titleLabels = [lhs, rhs]
@@ -109,9 +103,20 @@ open class DGRunkeeperSwitch: UIControl {
         backgroundColor = UIColor.scoreSwitch
     }
     
+    
+    
+    func configLhs(_ num: Int){
+        lhs.text = "\(num)"
+    }
+    
+    
+    
     fileprivate func finishInit() {
         // Setup views
         addSubview(titleLabelsContentView)
+        
+        
+        // 这一手，真漂亮
         
         object_setClass(selectedBackgroundView.layer, DGRunkeeperSwitchRoundedLayer.self)
         addSubview(selectedBackgroundView)
@@ -127,8 +132,6 @@ open class DGRunkeeperSwitch: UIControl {
             backgroundColor = .black
         }
         
-        selectedBackgroundColor = .white
-      
         // Gestures
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
         addGestureRecognizer(tapGesture)
@@ -145,6 +148,16 @@ open class DGRunkeeperSwitch: UIControl {
     }
     
 
+    func titleC() -> UILabel{
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.font = UIFont.regular(ofSize: 18)
+        label.textAlignment = .center
+        label.lineBreakMode = .byTruncatingTail
+        titleLabelsContentView.addSubview(label)
+        return label
+    }
+    
     
     // MARK: - Observer
     
