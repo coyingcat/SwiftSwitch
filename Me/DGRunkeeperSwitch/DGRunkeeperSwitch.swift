@@ -195,22 +195,22 @@ open class DGRunkeeperSwitch: UIControl {
         self.selectedIndex = selectedIndex
 
         
-        if catchHalfSwitch{
-            UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: animationSpringDamping, initialSpringVelocity: animationInitialSpringVelocity, options: [.beginFromCurrentState, .curveEaseOut], animations: { () -> Void in
-                switch selectedIndex {
-                case 0:
-                    self.backgroundColor = self.startColor
-                default:
-                    //  1
-                    self.backgroundColor = UIColor.scoreSwitch
-                }
-                self.layoutSubviews()
-                
-            }, completion: nil)
+        if !catchHalfSwitch{
+            sendActions(for: .valueChanged)
         }
-        else{
-            self.sendActions(for: .valueChanged)
-        }
+        
+        
+        UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: animationSpringDamping, initialSpringVelocity: animationInitialSpringVelocity, options: [.beginFromCurrentState, .curveEaseOut], animations: { () -> Void in
+            switch selectedIndex {
+            case 0:
+                self.backgroundColor = self.startColor
+            default:
+                //  1
+                self.backgroundColor = UIColor.scoreSwitch
+            }
+            self.layoutSubviews()
+            
+        }, completion: nil)
     }
     
     // MARK: - Layout

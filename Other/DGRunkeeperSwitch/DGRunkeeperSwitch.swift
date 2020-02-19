@@ -179,13 +179,7 @@ open class DGRunkeeperSwitch: UIControl {
     }
     
     
-    // MARK: - Observer
-    
-    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "selectedBackgroundView.frame" {
-            titleMaskView.frame = selectedBackgroundView.frame
-        }
-    }
+   
     
     // MARK: -
     
