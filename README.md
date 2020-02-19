@@ -49,3 +49,14 @@ runkeeperSwitch2.frame = CGRect(x: 50.0, y: 20.0, width: view.bounds.width - 100
 runkeeperSwitch2.autoresizingMask = [.flexibleWidth] // This is needed if you want the control to resize
 view.addSubview(runkeeperSwitch2)
 ```
+
+
+
+<hr>
+
+
+Thanks 
+
+@gontovnik/DGRunkeeperSwitch
+
+@https://github.com/gontovnik/DGRunkeeperSwitch/pull/48/files
