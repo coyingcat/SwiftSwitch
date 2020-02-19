@@ -39,12 +39,6 @@ open class DGRunkeeperSwitch: UIControl {
         get { return selectedBackgroundView.backgroundColor }
     }
     
-
-    @IBInspectable
-    open var selectedTitleColor: UIColor! {
-        didSet { selectedTitleLabels.forEach { $0.textColor = selectedTitleColor } }
-    }
-    
     
     open var animationDuration: TimeInterval = 0.3
     open var animationSpringDamping: CGFloat = 0.75
@@ -87,19 +81,20 @@ open class DGRunkeeperSwitch: UIControl {
         (titleLabels + selectedTitleLabels).forEach { $0.removeFromSuperview() }
 
         
-        let titleC = { num in
+        let titleC = { 
             let label = UILabel()
-            label.text = "\(num)"
             label.textColor = UIColor.white
             label.font = UIFont.regular(ofSize: 18)
             label.textAlignment = .center
             label.lineBreakMode = .byTruncatingTail
             self.titleLabelsContentView.addSubview(label)
             return label
-        } as (Int) -> UILabel
+        } as () -> UILabel
+        let lhs = titleC()
+        lhs.text = "80"
+        let rhs = titleC()
         
-        
-        titleLabels = [titleC(80), titleC(0)]
+        titleLabels = [lhs, rhs]
         
         
         let titleSelectedC = {
@@ -111,7 +106,7 @@ open class DGRunkeeperSwitch: UIControl {
         
         selectedTitleLabels = [titleSelectedC(), titleSelectedC()]
         finishInit()
-        backgroundColor = .black // don't set background color in finishInit(), otherwise IB settings which are applied in init?(coder:) are overwritten
+        backgroundColor = UIColor.scoreSwitch
     }
     
     fileprivate func finishInit() {
@@ -133,8 +128,6 @@ open class DGRunkeeperSwitch: UIControl {
         }
         
         selectedBackgroundColor = .white
-        
-        selectedTitleColor = .black
       
         // Gestures
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
@@ -195,6 +188,17 @@ open class DGRunkeeperSwitch: UIControl {
     open func setSelectedIndex(_ selectedIndex: Int, animated: Bool) {
         guard 0..<titleLabels.count ~= selectedIndex else { return }
         
+        
+        switch selectedIndex {
+        case 0:
+            backgroundColor = UIColor(rgb: 0xEDEDED)
+        default:
+            //  1
+            backgroundColor = UIColor.scoreSwitch
+        }
+        
+        
+        
         // Reset switch on half pan gestures
         var catchHalfSwitch = false
         if self.selectedIndex == selectedIndex {
@@ -206,7 +210,7 @@ open class DGRunkeeperSwitch: UIControl {
             if (!catchHalfSwitch) {
                 self.sendActions(for: .valueChanged)
             }
-            UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: animationSpringDamping, initialSpringVelocity: animationInitialSpringVelocity, options: [UIView.AnimationOptions.beginFromCurrentState, UIView.AnimationOptions.curveEaseOut], animations: { () -> Void in
+            UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: animationSpringDamping, initialSpringVelocity: animationInitialSpringVelocity, options: [.beginFromCurrentState, .curveEaseOut], animations: { () -> Void in
                 self.layoutSubviews()
                 }, completion: nil)
         } else {
