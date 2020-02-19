@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JqM-JB-8mi">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Neg-Mx-UB6">
+            <objects>
+                <navigationController id="JqM-JB-8mi" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NN4-ot-C6m">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6an-zX-QAJ" kind="relationship" relationship="rootViewController" id="kQP-zt-MRo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOl-ya-uXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-213" y="456"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rBd-wz-0fE">
+            <objects>
+                <viewController id="6an-zX-QAJ" customClass="ViewController" customModule="DGRunkeeperSwitchExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0S3-4h-joA"/>
+                        <viewControllerLayoutGuide type="bottom" id="SNu-9N-SF3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tVs-3B-QU8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFc-Vj-jEB" customClass="DGRunkeeperSwitch" customModule="DGRunkeeperSwitchExample" customModuleProvider="target">
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.47843137254901957" green="0.79607843137254897" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ukk-Qo-fpC"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleFontFamily" value="Times New Roman"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="switchValueDidChangeWithSender:" destination="6an-zX-QAJ" eventType="valueChanged" id="gTk-5r-LAK"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EFc-Vj-jEB" firstAttribute="leading" secondItem="tVs-3B-QU8" secondAttribute="leading" constant="20" id="MH9-53-swC"/>
+                            <constraint firstAttribute="trailing" secondItem="EFc-Vj-jEB" secondAttribute="trailing" constant="20" id="VaE-8p-81t"/>
+                            <constraint firstItem="SNu-9N-SF3" firstAttribute="top" secondItem="EFc-Vj-jEB" secondAttribute="bottom" constant="20" id="iGl-SR-06F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hlk-SI-d0e"/>
+                    <connections>
+                        <outlet property="runkeeperSwitch4" destination="EFc-Vj-jEB" id="z8c-lE-BQ4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Rp-S3-jKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="551" y="456"/>
+        </scene>
+    </scenes>
+</document>
