@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="196" id="KGk-i7-Jjw" customClass="EventCell" customModule="SwipeView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="196"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="330" height="196"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aeB-59-xyJ">
+                        <rect key="frame" x="88" y="3" width="154" height="190"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRQ-LQ-2lH">
+                                <rect key="frame" x="54" y="0.0" width="46" height="70.5"/>
+                                <state key="normal" title="按下去"/>
+                                <connections>
+                                    <action selector="press:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="C8V-ce-Mi5"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otO-mb-g8e">
+                                <rect key="frame" x="52.5" y="80.5" width="51" height="70.5"/>
+                                <connections>
+                                    <action selector="toggle:" destination="KGk-i7-Jjw" eventType="valueChanged" id="kqD-ja-udg"/>
+                                </connections>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="QM3-mG-daa">
+                                <rect key="frame" x="18" y="161" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="change:" destination="KGk-i7-Jjw" eventType="valueChanged" id="mHH-IW-a0b"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aeB-59-xyJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="WDa-sf-DtH"/>
+                    <constraint firstItem="aeB-59-xyJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hcK-77-zx4"/>
+                    <constraint firstItem="aeB-59-xyJ" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.969388" id="tQH-ry-B2S"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="113.04347826086958" y="115.84821428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
