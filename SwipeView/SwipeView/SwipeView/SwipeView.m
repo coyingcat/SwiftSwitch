@@ -1,53 +1,5 @@
-//
-//  SwipeView.m
-//
-//  Version 1.3.2
-//
-//  Created by Nick Lockwood on 03/09/2010.
-//  Copyright 2010 Charcoal Design
-//
-//  Distributed under the permissive zlib License
-//  Get the latest version of SwipeView from here:
-//
-//  https://github.com/nicklockwood/SwipeView
-//
-//  This software is provided 'as-is', without any express or implied
-//  warranty.  In no event will the authors be held liable for any damages
-//  arising from the use of this software.
-//
-//  Permission is granted to anyone to use this software for any purpose,
-//  including commercial applications, and to alter it and redistribute it
-//  freely, subject to the following restrictions:
-//
-//  1. The origin of this software must not be misrepresented; you must not
-//  claim that you wrote the original software. If you use this software
-//  in a product, an acknowledgment in the product documentation would be
-//  appreciated but is not required.
-//
-//  2. Altered source versions must be plainly marked as such, and must not be
-//  misrepresented as being the original software.
-//
-//  3. This notice may not be removed or altered from any source distribution.
-//
 
-
-#import "SwipeView.h"
 #import <objc/message.h>
-
-
-#pragma GCC diagnostic ignored "-Wdirect-ivar-access"
-#pragma GCC diagnostic ignored "-Warc-repeated-use-of-weak"
-
-#pragma GCC diagnostic ignored "-Wconversion"
-#pragma GCC diagnostic ignored "-Wselector"
-#pragma GCC diagnostic ignored "-Wgnu"
-
-
-#import <Availability.h>
-#if !__has_feature(objc_arc)
-#error This class requires automatic reference counting
-#endif
-
 
 @implementation NSObject (SwipeView)
 
@@ -65,105 +17,8 @@
 @end
 
 
-@interface SwipeView () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
-
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) NSMutableDictionary *itemViews;
-@property (nonatomic, strong) NSMutableSet *itemViewPool;
-@property (nonatomic, assign) NSInteger previousItemIndex;
-@property (nonatomic, assign) CGPoint previousContentOffset;
-@property (nonatomic, assign) CGSize itemSize;
-@property (nonatomic, assign) BOOL suppressScrollEvent;
-@property (nonatomic, assign) NSTimeInterval scrollDuration;
-@property (nonatomic, assign, getter = isScrolling) BOOL scrolling;
-@property (nonatomic, assign) NSTimeInterval startTime;
-@property (nonatomic, assign) NSTimeInterval lastTime;
-@property (nonatomic, assign) CGFloat startOffset;
-@property (nonatomic, assign) CGFloat endOffset;
-@property (nonatomic, assign) CGFloat lastUpdateOffset;
-@property (nonatomic, strong) NSTimer *timer;
-
-@end
 
 
-@implementation SwipeView
-
-#pragma mark -
-#pragma mark Initialisation
-
-- (void)setUp
-{
-    _scrollEnabled = YES;
-    _pagingEnabled = YES;
-    _delaysContentTouches = YES;
-    _bounces = YES;
-    _wrapEnabled = NO;
-    _itemsPerPage = 1;
-    _truncateFinalPage = NO;
-    _defersItemViewLoading = NO;
-    _vertical = NO;
-    
-    _scrollView = [[UIScrollView alloc] init];
-    _scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    _scrollView.autoresizesSubviews = YES;
-    _scrollView.delegate = self;
-    _scrollView.delaysContentTouches = _delaysContentTouches;
-    _scrollView.bounces = _bounces && !_wrapEnabled;
-    _scrollView.alwaysBounceHorizontal = !_vertical && _bounces;
-    _scrollView.alwaysBounceVertical = _vertical && _bounces;
-    _scrollView.pagingEnabled = _pagingEnabled;
-    _scrollView.scrollEnabled = _scrollEnabled;
-    _scrollView.decelerationRate = _decelerationRate;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.scrollsToTop = NO;
-    _scrollView.clipsToBounds = NO;
-    
-    _decelerationRate = _scrollView.decelerationRate;
-    _itemViews = [[NSMutableDictionary alloc] init];
-    _previousItemIndex = 0;
-    _previousContentOffset = _scrollView.contentOffset;
-    _scrollOffset = 0.0f;
-    _currentItemIndex = 0;
-    _numberOfItems = 0;
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
-    tapGesture.delegate = self;
-    [_scrollView addGestureRecognizer:tapGesture];
-    
-    self.clipsToBounds = YES;
-    
-    //place scrollview at bottom of hierarchy
-    [self insertSubview:_scrollView atIndex:0];
-    
-    if (_dataSource)
-    {
-        [self reloadData];
-    }
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    if ((self = [super initWithCoder:aDecoder]))
-    {
-        [self setUp];
-    }
-    return self;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    if ((self = [super initWithFrame:frame]))
-    {
-        [self setUp];
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [_timer invalidate];
-}
 
 - (void)setDataSource:(id<SwipeViewDataSource>)dataSource
 {
@@ -1117,19 +972,7 @@
     return NO;
 }
 
-- (void)didTap:(UITapGestureRecognizer *)tapGesture
-{
-    CGPoint point = [tapGesture locationInView:_scrollView];
-    NSInteger index = _vertical? (point.y / (_itemSize.height)): (point.x / (_itemSize.width));
-    if (_wrapEnabled)
-    {
-        index = index % _numberOfItems;
-    }
-    if (index >= 0 && index < _numberOfItems)
-    {
-        [_delegate swipeView:self didSelectItemAtIndex:index];
-    }
-}
+
 
 
 #pragma mark -

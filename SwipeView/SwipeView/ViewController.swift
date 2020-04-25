@@ -43,14 +43,13 @@ extension ViewController: SwipeViewDelegate{
 
 
 extension ViewController: SwipeViewDataSource{
-    
+ 
     func numberOfItems(in swipeView: SwipeView!) -> Int {
         return 100
     }
     
-    
-    func swipeView(_ swipeView: SwipeView!, viewForItemAt index: Int, reusing view: UIView!) -> UIView! {
-        
+    func viewForItem(swipeView v: SwipeView, at index: Int, reusing view: UIView) -> UIView{
+       
         if (view == nil){
             if let views = Bundle.main.loadNibNamed("EventCell", owner: self, options: nil) as? [EventCell]{
                 let v = views[0]
@@ -68,18 +67,18 @@ extension ViewController: SwipeViewDataSource{
 extension ViewController: EventCellDelegate{
 
     func click(btn b: UIButton) {
-        label.text = "Button \(swipeView.index(ofItemView: b)) pressed"
+        label.text = "Button \(swipeView.index(of: b)) pressed"
     }
     
     
     
     func toggle(switch s: UISwitch) {
-        label.text = "Switch \(swipeView.index(ofItemView: s)) toggled"
+        label.text = "Switch \(swipeView.index(of: s)) toggled"
     }
 
 
     func change(slide s: UISlider) {
-        label.text = "Slider \(swipeView.index(ofItemView: s)) changed"
+        label.text = "Slider \(swipeView.index(of: s)) changed"
     }
 
 }

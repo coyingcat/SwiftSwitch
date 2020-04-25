@@ -9,8 +9,5 @@
 #ifndef ObjC_Bridge_h
 #define ObjC_Bridge_h
 
-#import "SwipeView.h"
-
-
 
 #endif /* ObjC_Bridge_h */

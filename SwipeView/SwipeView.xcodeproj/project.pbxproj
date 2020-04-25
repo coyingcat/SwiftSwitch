@@ -18,6 +18,7 @@
 		26C88EC324545DE0008B4C06 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C88EC124545DE0008B4C06 /* SwipeView.m */; };
 		26C88EC8245460E1008B4C06 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88EC6245460E1008B4C06 /* EventCell.swift */; };
 		26C88EC9245460E1008B4C06 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C88EC7245460E1008B4C06 /* EventCell.xib */; };
+		26C88ECB24546710008B4C06 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88ECA24546710008B4C06 /* SwipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +54,10 @@
 		26C88EB224543A55008B4C06 /* SwipeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewUITests.swift; sourceTree = "<group>"; };
 		26C88EB424543A55008B4C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26C88EC124545DE0008B4C06 /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
-		26C88EC224545DE0008B4C06 /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
 		26C88EC424545E76008B4C06 /* ObjC_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjC_Bridge.h; sourceTree = "<group>"; };
 		26C88EC6245460E1008B4C06 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		26C88EC7245460E1008B4C06 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		26C88ECA24546710008B4C06 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				26C88EC124545DE0008B4C06 /* SwipeView.m */,
-				26C88EC224545DE0008B4C06 /* SwipeView.h */,
+				26C88ECA24546710008B4C06 /* SwipeView.swift */,
 			);
 			path = SwipeView;
 			sourceTree = "<group>";
@@ -292,6 +293,7 @@
 				26C88E9524543A53008B4C06 /* ViewController.swift in Sources */,
 				26C88EC324545DE0008B4C06 /* SwipeView.m in Sources */,
 				26C88EC8245460E1008B4C06 /* EventCell.swift in Sources */,
+				26C88ECB24546710008B4C06 /* SwipeView.swift in Sources */,
 				26C88E9124543A53008B4C06 /* AppDelegate.swift in Sources */,
 				26C88E9324543A53008B4C06 /* SceneDelegate.swift in Sources */,
 			);
