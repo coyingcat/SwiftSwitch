@@ -1,6 +1,12 @@
 
 
 
+## 博客[解决 TableView 上的控件 UISlider 的手势冲突](https://zhuanlan.zhihu.com/p/136416804)
+
+
+<hr>
+
+
 # SwiftSwitch， 我做了一些 DIY ，与简化
 
 
