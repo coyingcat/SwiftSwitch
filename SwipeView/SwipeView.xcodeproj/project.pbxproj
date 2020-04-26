@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2668116824555E7F00617537 /* TapTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668116724555E7F00617537 /* TapTB.swift */; };
 		26C88E9124543A53008B4C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88E9024543A53008B4C06 /* AppDelegate.swift */; };
 		26C88E9324543A53008B4C06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88E9224543A53008B4C06 /* SceneDelegate.swift */; };
 		26C88E9524543A53008B4C06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88E9424543A53008B4C06 /* ViewController.swift */; };
@@ -15,10 +16,6 @@
 		26C88E9D24543A55008B4C06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C88E9B24543A55008B4C06 /* LaunchScreen.storyboard */; };
 		26C88EA824543A55008B4C06 /* SwipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88EA724543A55008B4C06 /* SwipeViewTests.swift */; };
 		26C88EB324543A55008B4C06 /* SwipeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88EB224543A55008B4C06 /* SwipeViewUITests.swift */; };
-		26C88EC324545DE0008B4C06 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C88EC124545DE0008B4C06 /* SwipeView.m */; };
-		26C88EC8245460E1008B4C06 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88EC6245460E1008B4C06 /* EventCell.swift */; };
-		26C88EC9245460E1008B4C06 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C88EC7245460E1008B4C06 /* EventCell.xib */; };
-		26C88ECB24546710008B4C06 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C88ECA24546710008B4C06 /* SwipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2668116724555E7F00617537 /* TapTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapTB.swift; sourceTree = "<group>"; };
 		26C88E8D24543A53008B4C06 /* SwipeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C88E9024543A53008B4C06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26C88E9224543A53008B4C06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,11 +51,7 @@
 		26C88EAE24543A55008B4C06 /* SwipeViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C88EB224543A55008B4C06 /* SwipeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewUITests.swift; sourceTree = "<group>"; };
 		26C88EB424543A55008B4C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26C88EC124545DE0008B4C06 /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		26C88EC424545E76008B4C06 /* ObjC_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjC_Bridge.h; sourceTree = "<group>"; };
-		26C88EC6245460E1008B4C06 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
-		26C88EC7245460E1008B4C06 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
-		26C88ECA24546710008B4C06 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +102,7 @@
 		26C88E8F24543A53008B4C06 /* SwipeView */ = {
 			isa = PBXGroup;
 			children = (
-				26C88EC5245460C9008B4C06 /* Cell */,
 				26C88EC424545E76008B4C06 /* ObjC_Bridge.h */,
-				26C88EC024545DE0008B4C06 /* SwipeView */,
 				26C88E9024543A53008B4C06 /* AppDelegate.swift */,
 				26C88E9224543A53008B4C06 /* SceneDelegate.swift */,
 				26C88E9424543A53008B4C06 /* ViewController.swift */,
@@ -118,6 +110,7 @@
 				26C88E9924543A55008B4C06 /* Assets.xcassets */,
 				26C88E9B24543A55008B4C06 /* LaunchScreen.storyboard */,
 				26C88E9E24543A55008B4C06 /* Info.plist */,
+				2668116724555E7F00617537 /* TapTB.swift */,
 			);
 			path = SwipeView;
 			sourceTree = "<group>";
@@ -138,24 +131,6 @@
 				26C88EB424543A55008B4C06 /* Info.plist */,
 			);
 			path = SwipeViewUITests;
-			sourceTree = "<group>";
-		};
-		26C88EC024545DE0008B4C06 /* SwipeView */ = {
-			isa = PBXGroup;
-			children = (
-				26C88EC124545DE0008B4C06 /* SwipeView.m */,
-				26C88ECA24546710008B4C06 /* SwipeView.swift */,
-			);
-			path = SwipeView;
-			sourceTree = "<group>";
-		};
-		26C88EC5245460C9008B4C06 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				26C88EC6245460E1008B4C06 /* EventCell.swift */,
-				26C88EC7245460E1008B4C06 /* EventCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +237,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26C88EC9245460E1008B4C06 /* EventCell.xib in Resources */,
 				26C88E9D24543A55008B4C06 /* LaunchScreen.storyboard in Resources */,
 				26C88E9A24543A55008B4C06 /* Assets.xcassets in Resources */,
 				26C88E9824543A53008B4C06 /* Main.storyboard in Resources */,
@@ -291,9 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26C88E9524543A53008B4C06 /* ViewController.swift in Sources */,
-				26C88EC324545DE0008B4C06 /* SwipeView.m in Sources */,
-				26C88EC8245460E1008B4C06 /* EventCell.swift in Sources */,
-				26C88ECB24546710008B4C06 /* SwipeView.swift in Sources */,
+				2668116824555E7F00617537 /* TapTB.swift in Sources */,
 				26C88E9124543A53008B4C06 /* AppDelegate.swift in Sources */,
 				26C88E9324543A53008B4C06 /* SceneDelegate.swift in Sources */,
 			);
@@ -471,6 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D878P8TW6L;
 				INFOPLIST_FILE = SwipeView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,6 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D878P8TW6L;
 				INFOPLIST_FILE = SwipeView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
