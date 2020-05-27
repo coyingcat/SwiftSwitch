@@ -22,7 +22,7 @@ open class DGRunkeeperSwitchRoundedLayer: CALayer {
 
 
 @IBDesignable
-open class DGRunkeeperSwitch: UIControl {
+open class DoubleSwitch: UIControl {
     
     // MARK: - Public vars
     
@@ -241,7 +241,7 @@ open class DGRunkeeperSwitch: UIControl {
 
 // MARK: - UIGestureRecognizerDelegate
 
-extension DGRunkeeperSwitch: UIGestureRecognizerDelegate {
+extension DoubleSwitch: UIGestureRecognizerDelegate {
     
     override open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == panGesture {

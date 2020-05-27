@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         navigationController!.navigationBar.barTintColor = UIColor(red: 252.0/255.0, green: 182.0/255.0, blue: 54.0/255.0, alpha: 1.0)
         
         
-        let runkeeperSwitch3 = DGRunkeeperSwitch()
+        let runkeeperSwitch3 = DoubleSwitch()
       
         runkeeperSwitch3.frame = CGRect(x: 50.0, y: 70.0, width: 248, height: 40)
         runkeeperSwitch3.addTarget(self, action: #selector(ViewController.switchValueDidChange(sender:)), for: .valueChanged)
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
    
     // MARK: -
     
-    @IBAction func switchValueDidChange(sender: DGRunkeeperSwitch!) {
+    @IBAction func switchValueDidChange(sender: DoubleSwitch!) {
         print("valueChanged: \(sender.selectedIndex)")
     }
     
