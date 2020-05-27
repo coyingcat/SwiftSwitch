@@ -35,6 +35,7 @@ open class DGRunkeeperSwitch: UIControl {
                 let label = UILabel()
                 label.text = title
                 label.textColor = UIColor(rgb: 0x725A7C)
+                label.alpha = 0.5
                 label.font = titleFont
                 label.textAlignment = .center
                 label.lineBreakMode = .byTruncatingTail
@@ -60,12 +61,6 @@ open class DGRunkeeperSwitch: UIControl {
     open var selectedBackgroundInset: CGFloat = 2.0 {
         didSet { setNeedsLayout() }
     }
-    
-    @IBInspectable
-    open var titleFontFamily: String = "HelveticaNeue"
-    
-    @IBInspectable
-    open var titleFontSize: CGFloat = 18.0
     
     open var animationDuration: TimeInterval = 0.3
     open var animationSpringDamping: CGFloat = 0.75
@@ -174,16 +169,19 @@ open class DGRunkeeperSwitch: UIControl {
     
     @objc
     func pan(_ gesture: UIPanGestureRecognizer!) {
-        if gesture.state == .began {
+        switch gesture.state {
+        case .began:
             initialSelectedBackgroundViewFrame = selectedBackgroundView.frame
-        } else if gesture.state == .changed {
+        case .changed:
             var frame = initialSelectedBackgroundViewFrame!
             frame.origin.x += gesture.translation(in: self).x
             frame.origin.x = max(min(frame.origin.x, bounds.width - selectedBackgroundInset - frame.width), selectedBackgroundInset)
             selectedBackgroundView.frame = frame
-        } else if gesture.state == .ended || gesture.state == .failed || gesture.state == .cancelled {
+        case .ended , .failed, .cancelled:
             let index = max(0, min(titleLabels.count - 1, Int(selectedBackgroundView.center.x / (bounds.width / CGFloat(titleLabels.count)))))
             setSelectedIndex(index, animated: true)
+        default:
+            ()
         }
     }
     
