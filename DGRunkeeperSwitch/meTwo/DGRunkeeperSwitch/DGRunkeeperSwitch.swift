@@ -154,13 +154,7 @@ open class DGRunkeeperSwitch: UIControl {
     }
     
     
-    override open func awakeFromNib() {
-        super.awakeFromNib()
 
-    }
-    
-    
-   
     
     // MARK: -
     
