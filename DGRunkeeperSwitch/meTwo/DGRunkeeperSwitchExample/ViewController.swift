@@ -23,17 +23,9 @@ class ViewController: UIViewController {
         
         let runkeeperSwitch3 = DGRunkeeperSwitch()
       
-        
-        runkeeperSwitch3.titleColor = .white
-        runkeeperSwitch3.selectedTitleColor = UIColor(red: 239.0/255.0, green: 95.0/255.0, blue: 49.0/255.0, alpha: 1.0)
-        runkeeperSwitch3.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)
-        runkeeperSwitch3.frame = CGRect(x: 50.0, y: 70.0, width: view.bounds.width - 100.0, height: 30.0)
-        runkeeperSwitch3.autoresizingMask = [.flexibleWidth]
+        runkeeperSwitch3.frame = CGRect(x: 50.0, y: 70.0, width: 248, height: 40)
         runkeeperSwitch3.addTarget(self, action: #selector(ViewController.switchValueDidChange(sender:)), for: .valueChanged)
         view.addSubview(runkeeperSwitch3)
-        
-        
-  
         
     }
     

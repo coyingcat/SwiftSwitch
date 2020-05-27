@@ -28,11 +28,13 @@ open class DGRunkeeperSwitch: UIControl {
     
     open var titles: [String] {
         set {
+            let titleFont = UIFont.regular(ofSize: 20)
+            
             (titleLabels + selectedTitleLabels).forEach { $0.removeFromSuperview() }
             titleLabels = newValue.map { title in
                 let label = UILabel()
                 label.text = title
-                label.textColor = titleColor
+                label.textColor = UIColor(rgb: 0x725A7C)
                 label.font = titleFont
                 label.textAlignment = .center
                 label.lineBreakMode = .byTruncatingTail
@@ -42,7 +44,7 @@ open class DGRunkeeperSwitch: UIControl {
             selectedTitleLabels = newValue.map { title in
                 let label = UILabel()
                 label.text = title
-                label.textColor = selectedTitleColor
+                label.textColor = UIColor.white
                 label.font = titleFont
                 label.textAlignment = .center
                 label.lineBreakMode = .byTruncatingTail
@@ -57,20 +59,6 @@ open class DGRunkeeperSwitch: UIControl {
     
     open var selectedBackgroundInset: CGFloat = 2.0 {
         didSet { setNeedsLayout() }
-    }
-    
-    @IBInspectable
-    open var titleColor: UIColor! {
-        didSet { titleLabels.forEach { $0.textColor = titleColor } }
-    }
-    
-    @IBInspectable
-    open var selectedTitleColor: UIColor! {
-        didSet { selectedTitleLabels.forEach { $0.textColor = selectedTitleColor } }
-    }
-    
-    open var titleFont: UIFont! {
-        didSet { (titleLabels + selectedTitleLabels).forEach { $0.font = titleFont } }
     }
     
     @IBInspectable
@@ -149,9 +137,7 @@ open class DGRunkeeperSwitch: UIControl {
         
         
         selectedBackgroundView.backgroundColor = UIColor(rgb: 0x725A7C)
-        titleColor = .white
-        selectedTitleColor = .black
-      
+        
         // Gestures
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
         addGestureRecognizer(tapGesture)
@@ -171,7 +157,6 @@ open class DGRunkeeperSwitch: UIControl {
     override open func awakeFromNib() {
         super.awakeFromNib()
 
-        self.titleFont = UIFont(name: self.titleFontFamily, size: self.titleFontSize)
     }
     
     
