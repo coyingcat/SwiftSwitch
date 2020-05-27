@@ -107,7 +107,7 @@ open class DGRunkeeperSwitch: UIControl {
         super.init(frame: frame)
         
         finishInit()
-        backgroundColor = .black // don't set background color in finishInit(), otherwise IB settings which are applied in init?(coder:) are overwritten
+        
     }
     
     fileprivate func finishInit() {
