@@ -12,9 +12,9 @@
 		05B5DEA31B98509500F87BB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B5DEA11B98509500F87BB3 /* Main.storyboard */; };
 		05B5DEA51B98509500F87BB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B5DEA41B98509500F87BB3 /* Assets.xcassets */; };
 		05B5DEA81B98509500F87BB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B5DEA61B98509500F87BB3 /* LaunchScreen.storyboard */; };
-		05B5DEB11B9851F700F87BB3 /* DGRunkeeperSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5DEB01B9851F700F87BB3 /* DGRunkeeperSwitch.swift */; };
 		268BBC5123FCCE8400AECD42 /* FontAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BBC5023FCCE8400AECD42 /* FontAdd.swift */; };
 		268BBC5323FCD39700AECD42 /* UIColorMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BBC5223FCD39700AECD42 /* UIColorMore.swift */; };
+		26CC7230247E5DF100797BC0 /* DoubleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC722F247E5DF100797BC0 /* DoubleSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +25,9 @@
 		05B5DEA41B98509500F87BB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B5DEA71B98509500F87BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05B5DEA91B98509500F87BB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05B5DEB01B9851F700F87BB3 /* DGRunkeeperSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DGRunkeeperSwitch.swift; path = DGRunkeeperSwitch/DGRunkeeperSwitch.swift; sourceTree = SOURCE_ROOT; };
 		268BBC5023FCCE8400AECD42 /* FontAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAdd.swift; sourceTree = "<group>"; };
 		268BBC5223FCD39700AECD42 /* UIColorMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorMore.swift; sourceTree = "<group>"; };
+		26CC722F247E5DF100797BC0 /* DoubleSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleSwitch.swift; path = DGRunkeeperSwitch/DoubleSwitch.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 		05B5DEAF1B9851B900F87BB3 /* DGRunkeeperSwitch */ = {
 			isa = PBXGroup;
 			children = (
-				05B5DEB01B9851F700F87BB3 /* DGRunkeeperSwitch.swift */,
+				26CC722F247E5DF100797BC0 /* DoubleSwitch.swift */,
 			);
 			name = DGRunkeeperSwitch;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 				268BBC5323FCD39700AECD42 /* UIColorMore.swift in Sources */,
 				05B5DEA01B98509500F87BB3 /* ViewController.swift in Sources */,
 				05B5DE9E1B98509500F87BB3 /* AppDelegate.swift in Sources */,
-				05B5DEB11B9851F700F87BB3 /* DGRunkeeperSwitch.swift in Sources */,
+				26CC7230247E5DF100797BC0 /* DoubleSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
