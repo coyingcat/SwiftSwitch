@@ -60,12 +60,6 @@ open class DGRunkeeperSwitch: UIControl {
     }
     
     @IBInspectable
-    open var selectedBackgroundColor: UIColor! {
-        set { selectedBackgroundView.backgroundColor = newValue }
-        get { return selectedBackgroundView.backgroundColor }
-    }
-    
-    @IBInspectable
     open var titleColor: UIColor! {
         didSet { titleLabels.forEach { $0.textColor = titleColor } }
     }
@@ -113,10 +107,9 @@ open class DGRunkeeperSwitch: UIControl {
     
     // MARK: - Constructors
     
-    public init(titles: [String]) {
+    public init(){
         super.init(frame: CGRect.zero)
         
-        self.titles = titles
         
         finishInit()
     }
@@ -135,6 +128,9 @@ open class DGRunkeeperSwitch: UIControl {
     }
     
     fileprivate func finishInit() {
+        
+        titles = ["练习模式", "测评模式"]
+        
         // Setup views
         addSubview(titleLabelsContentView)
         
@@ -148,11 +144,11 @@ open class DGRunkeeperSwitch: UIControl {
         selectedTitleLabelsContentView.layer.mask = titleMaskView.layer
         
         // Setup defaul colors
-        if backgroundColor == nil {
-            backgroundColor = .black
-        }
         
-        selectedBackgroundColor = .white
+        backgroundColor = UIColor(rgb: 0xF0EEF1)
+        
+        
+        selectedBackgroundView.backgroundColor = UIColor(rgb: 0x725A7C)
         titleColor = .white
         selectedTitleColor = .black
       

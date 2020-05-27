@@ -22,9 +22,8 @@ class ViewController: UIViewController {
         
         
         let runkeeperSwitch3 = DGRunkeeperSwitch()
-        runkeeperSwitch3.titles = ["Long left title", "Super long right title"]
-        runkeeperSwitch3.backgroundColor = UIColor(red: 239.0/255.0, green: 95.0/255.0, blue: 49.0/255.0, alpha: 1.0)
-        runkeeperSwitch3.selectedBackgroundColor = .white
+      
+        
         runkeeperSwitch3.titleColor = .white
         runkeeperSwitch3.selectedTitleColor = UIColor(red: 239.0/255.0, green: 95.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         runkeeperSwitch3.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)
